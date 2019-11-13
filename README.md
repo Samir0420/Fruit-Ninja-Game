@@ -1,1 +1,1 @@
- #This is a README for my coded fruit ninja game.
+ #This is a README for my coded fruit ninja game for python.
