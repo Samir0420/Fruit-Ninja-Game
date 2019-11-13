@@ -1,4 +1,124 @@
 Room Script
+rm_GameOver
+
+Start //This is the start section
+
+#New room with the game over backgound
+
+bg= object_new("obj_GameOver") //The "obj" stands for object scripts 
+bg.sprite= sprite_new("spr_GameOver") //The "spr" stands for the sprite (picture) of the object 
+bg.sprite_height = 0.4 // Height of the background
+bg.sprite_width = 0.4 //Width of the background
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+rm_Level1
+
+Start //This is the start section
+
+#New object that spawns fruits with coordinates
+
+spawner = object_new("obj_fruitSpawner")
+spawner.y = -275
+
+#Background for game 
+
+bg= object_new("obj_fruitninjaBG")
+bg.sprite= sprite_new("spr_fruitninjaBG")
+bg.sprite_height = 0.5
+bg.sprite_width = 0.5
+
+timer = 1500
 
 
-Start //The Sta
+Loop //This is the loop section
+
+timer -= 1
+
+if game.score > 15: //If more than 15 points...
+  print("Congrats! You passed level 1") 
+  set_room("rm_Level2") //Go to next level
+  game.score = 0
+elif timer < 0: //If less than 15 points...
+  print("GAME OVER")
+  set_room("rm_GameOver") //Game Over
+  game.score = 0
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+rm_Level2
+
+Start //This is the start section
+
+#New object that spawns fruits with coordinates
+
+spawner = object_new("obj_fruitSpawner")
+spawner.y = -275
+spawner.spawnRate = 30
+
+#Background for game 
+
+bg= object_new("obj_fruitninjaBG2")
+bg.sprite= sprite_new("spr_fruitninjaBG2")
+bg.sprite_height = 1
+bg.sprite_width = 1
+
+timer = 1300
+
+
+Loop //This is the loop section
+
+timer -= 1
+
+if game.score > 30: //If more than 15 points...
+  print("Congrats! You passed level 2")
+  set_room("rm_Level3") //Go to next level
+  game.score = 0
+elif timer < 0: //If less than 30 points...
+  print("GAME OVER")
+  set_room("rm_GameOver") //Game Over
+  game.score = 0
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+rm_Level3
+
+Start //This is the start section
+
+#New object that spawns fruits with coordinates
+
+spawner = object_new("obj_fruitSpawner")
+spawner.y = -275
+
+#Background for game 
+
+bg= object_new("obj_fruitninjaBG3")
+bg.sprite= sprite_new("spr_fruitninjaBG3")
+bg.sprite_height = 0.45
+bg.sprite_width = 0.45
+
+timer = 1100
+
+
+Loop //This is the loop section
+
+timer -= 1
+  
+if game.score > 35: //If more than 35 points...
+  print("Congrats! You passed level 3")
+  set_room("rm_YouWin") //Set to "rm_YouWin" where you win the game!!!
+  game.score = 0
+elif timer < 0: //If less than 35 points...
+  print("GAME OVER")
+  set_room("rm_GameOver") //Game Over
+  game.score = 0
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+rm_YouWin
+
+Start //This is the start section
+
+#New room with the game over backgound
+
+bg= object_new("obj_YouWin")
+bg.sprite= sprite_new("spr_YouWin")
+bg.sprite_height = 1.5
+bg.sprite_width = 1.5
