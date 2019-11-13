@@ -1,5 +1,6 @@
 Main Script 
 
+
 Start //This is in the start section 
 
 #set room
@@ -19,3 +20,29 @@ mouseDeltaY = 0
 score = 0
 comboMultiplier = 1
 comboTimer = 0
+
+
+
+
+Loop //This is in the loop section
+
+if mouse_is_pressed("left"):
+  
+  mouseDown = True
+  
+  #Calsulate mouse delta/speed
+  mouseDeltaX = mouse_x() - mousePrevX
+  mousePrevX = mouse_x()
+  
+  mouseDeltaY = mouse_y() - mousePrevY
+  mousePrevY = mouse_y()
+  
+else:
+  mouseDown = False
+  
+comboTimer -= 1
+  
+if mouseDown == False or comboTimer < 0:
+  if comboMultiplier != 1:
+    comboMultiplier = 1
+    print ("Combo Reset!")
