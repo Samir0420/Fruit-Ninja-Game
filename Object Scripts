@@ -1,0 +1,274 @@
+Object Scripts
+
+obj_apple //This is my object script for the apple 
+Start //This is the start section
+
+#Apple sprite
+sprite = sprite_new("spr_apple") //Imported a picture of the apple as my sprite
+
+import random
+
+#Velocity/Gravity of apple
+xVelocity = 0
+yVelocity = 0
+gravity = 0.3
+
+pointAmt = 2 //The points the apple is worth after slicing
+
+#Sprite height/width of apple //Dimensions of the apple sprite
+sprite_height = 0.5
+sprite_width = 0.5
+
+def create_fruit_halves():
+  
+  left = object_new("obj_fruitHalf") //Another object script for the halves of the fruit
+  left.sprite = sprite_new("spr_appleLeft") //Spite of the left cut apple
+  left.sprite_height = self.sprite_height 
+  left.sprite_width = self.sprite_width
+  
+  left.x = self.x - 30
+  left.y = self.y + 10
+  
+  left.xVelocity = game.mouseDeltaX/6
+  left.yVelocity = game.mouseDeltaY/6
+  
+  right = object_new("obj_fruitHalf") //Another object script for the halves of the fruit
+  right.sprite = sprite_new("spr_appleRight") //Spite of the right cut apple
+  right.sprite_height = self.sprite_height
+  right.sprite_width = self.sprite_width
+  
+  right.x = self.x + 30
+  right.y = self.y + 10
+  
+  right.xVelocity = game.mouseDeltaX/6
+  right.yVelocity = game.mouseDeltaY/6
+  
+  
+Loop //This is the loop section
+
+#Velocity of apple
+self.x += xVelocity
+self.y += yVelocity
+
+yVelocity -= gravity
+
+#If apple is less than -400, destroy self
+if self.y < -400:
+  destroy(self)
+  
+#Print absolute value of apple when left clicked
+if game.mouseDown:
+  
+  xDistance = abs (self.x - mouse_x() )
+  yDistance = abs (self.y - mouse_y() )
+
+  
+#Print Close! if x/y distance less than 45
+  if xDistance < 30 and yDistance < 30:
+    destroy(self)
+    create_fruit_halves()
+    
+    game.score += pointAmt * game.comboMultiplier
+    game.comboMulitplier += 0.1
+    print("Score: " + round (game.score, 1))
+    game.comboTimer - 60
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+obj_orange
+Start //This is my start section
+
+#Orange sprite
+sprite = sprite_new("spr_orange")
+
+#Velocity/Gravity of orange
+xVelocity = 0
+yVelocity = 0
+gravity = 0.3
+
+pointAmt = 2
+
+#Sprite height/width of orange
+sprite_height = 0.5
+sprite_width = 0.5
+
+def create_fruit_halves():
+  
+  left = object_new("obj_fruitHalf")
+  left.sprite = sprite_new("spr_orangeLeft")
+  left.sprite_height = self.sprite_height
+  left.sprite_width = self.sprite_width
+  
+  left.x = self.x - 30
+  left.y = self.y + 10
+  
+  left.xVelocity = game.mouseDeltaX/6
+  left.yVelocity = game.mouseDeltaY/6
+  
+  right = object_new("obj_fruitHalf")
+  right.sprite = sprite_new("spr_orangeRight")
+  right.sprite_height = self.sprite_height
+  right.sprite_width = self.sprite_width
+  
+  right.x = self.x + 30
+  right.y = self.y + 10
+  
+  right.xVelocity = game.mouseDeltaX/6
+  right.yVelocity = game.mouseDeltaY/6
+  
+  
+Loop //This is my loop section
+
+#Velocity of orange
+self.x += xVelocity
+self.y += yVelocity
+
+yVelocity -= gravity
+
+#If orange is less than -400, destroy self
+if self.y < -400:
+  destroy(self)
+  
+#Print absolute value of orange when left clicked
+if game.mouseDown:
+  
+  xDistance = abs (self.x - mouse_x() )
+  yDistance = abs (self.y - mouse_y() )
+ 
+  
+#Print Close! if x/y distance less than 45
+  if xDistance < 45 and yDistance < 45:
+    destroy(self)
+    create_fruit_halves()
+    
+    game.score += pointAmt * game.comboMultiplier
+    game.comboMulitplier += 0.1
+    print("Score: " + round (game.score, 1))
+    game.comboTimer - 60
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+obj_watermelon
+Start //This is the start section
+
+#Watermelon sprite
+sprite = sprite_new("spr_watermelon")
+
+import random
+
+#Velocity/Gravity of watermelon
+xVelocity = 0
+yVelocity = 0
+gravity = 0.3
+
+pointAmt = 1
+
+#Sprite height/width of watermelon
+sprite_height = 0.8
+sprite_width = 0.8
+
+def create_fruit_halves():
+  
+  left = object_new("obj_fruitHalf")
+  left.sprite = sprite_new("spr_watermelonLeft")
+  left.sprite_height = self.sprite_height
+  left.sprite_width = self.sprite_width
+  
+  left.x = self.x - 30
+  left.y = self.y + 10
+  
+  left.xVelocity = game.mouseDeltaX/6
+  left.yVelocity = game.mouseDeltaY/6
+  
+  right = object_new("obj_fruitHalf")
+  right.sprite = sprite_new("spr_watermelonRight")
+  right.sprite_height = self.sprite_height
+  right.sprite_width = self.sprite_width
+  
+  right.x = self.x + 30
+  right.y = self.y + 10
+  
+  right.xVelocity = game.mouseDeltaX/6
+  right.yVelocity = game.mouseDeltaY/6
+  
+  
+Loop //This is the loop section
+
+#Velocity of watermelon 
+self.x += xVelocity
+self.y += yVelocity
+
+yVelocity -= gravity
+
+#If watermelon is less than -400, destroy self
+if self.y < -400:
+  destroy(self)
+
+#Print absolute value of watermelon when left clicked
+if game.mouseDown:
+  xDistance = abs (self.x - mouse_x() )
+  yDistance = abs (self.y - mouse_y() )
+  
+
+#Print Close! if x/y distance less than 45
+  if xDistance < 45 and yDistance < 45:
+    destroy(self)
+    create_fruit_halves()
+    
+    game.score += pointAmt * game.comboMultiplier
+    game.comboMulitplier += 0.1
+    print("Score: " + round (game.score, 1))
+    game.comboTimer - 60
+    
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+obj_fruitSpawner
+Start //This is the start section
+
+import random
+
+timer = 0
+
+spawnRate = 40
+
+
+Loop //This is the loop section
+
+timer += 1
+
+if timer >= spawnRate:
+  randomInt = random.randint(1,6)
+  
+#If integer from 1-6 spawn one of these fruits
+  if randomInt == 1:
+    newFruit = object_new("obj_apple")
+  elif randomInt == 2:
+    newFruit = object_new("obj_orange")
+  elif randomInt == 3:
+    newFruit = object_new("obj_watermelon")
+  elif randomInt == 4:
+    newFruit = object_new("obj_bomb")
+  elif randomInt == 5:
+    newFruit = object_new("obj_lemon")
+  elif randomInt == 6:
+    newFruit = object_new("obj_pear")
+    
+#Random integer for velocity (x-axis)
+  randomX = random.randint(-2,2)
+  newFruit. xVelocity = randomX
+  
+#Random integer for velocity (y-axis)
+  randomY = random.randint(14,17)
+  newFruit. yVelocity = randomY
+  
+#New fruit spawns from -150 to 150
+  newFruit.x = self.x + random.randint(-150,150)
+  newFruit.y = self.y
+  timer = 0
+  #print("Working!")
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+obj_bomb
+Start //This is the start section
+
