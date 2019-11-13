@@ -4,7 +4,7 @@ Start //This is in the start section
 
 #set room
 
-set_room("rm_Level1")
+set_room("rm_Level1") //The variable "rm_Level1" is created in Room Scripts (seperate file)
 
 mouseDown = False
 
