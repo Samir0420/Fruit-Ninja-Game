@@ -1,1 +1,21 @@
-test
+Main Script 
+
+Start //This is in the start section 
+
+#set room
+
+set_room("rm_Level1")
+
+mouseDown = False
+
+# Use these to keep track of mouse
+# Mouse speed
+mousePrevX = 0
+mousePrevY = 0
+
+mouseDeltaX = 0
+mouseDeltaY = 0
+
+score = 0
+comboMultiplier = 1
+comboTimer = 0
