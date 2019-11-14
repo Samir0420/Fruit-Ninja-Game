@@ -272,3 +272,206 @@ if timer >= spawnRate:
 obj_bomb
 Start //This is the start section
 
+#Sprite for bomb
+sprite = sprite_new("spr_bomb")
+
+import random
+
+#Velocity/Gravity of bomb
+xVelocity = 0
+yVelocity = 0
+gravity = 0.3
+
+#Sprite height/width of bomb
+sprite_height = 0.5
+sprite_width = 0.5
+
+pointAmt = 5 //Value of the object
+
+
+Loop //This is the loop section
+
+#Velocity of orange
+self.x += xVelocity
+self.y += yVelocity
+
+yVelocity -= gravity
+
+#If orange is less than -400, destroy self
+if self.y < -400:
+  destroy(self)
+  
+#Print absolute value of orange when left clicked
+if game.mouseDown:
+  
+  xDistance = abs (self.x - mouse_x() )
+  yDistance = abs (self.y - mouse_y() )
+ 
+  
+#Print Close! if x/y distance less than 45
+  if xDistance < 45 and yDistance < 45:
+    destroy(self)
+    
+    game.score -= pointAmt 
+    print("Score: " + round (game.score, 1))
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+obj_lemon
+Start //This is the start section
+
+#Velocity/Gravity of lemon
+xVelocity = 0
+yVelocity = 0
+gravity = 0.3
+
+pointAmt = 3
+
+#Sprite height/width of lemon
+sprite_height = 0.04
+sprite_width = 0.04
+
+
+def create_fruit_halves():
+  
+  left = object_new("obj_fruitHalf")
+  left.sprite = sprite_new("spr_lemonLeft")
+  left.sprite_height = self.sprite_height
+  left.sprite_width = self.sprite_width
+  
+  left.x = self.x - 30
+  left.y = self.y + 10
+  
+  left.xVelocity = game.mouseDeltaX/6
+  left.yVelocity = game.mouseDeltaY/6
+  
+  right = object_new("obj_fruitHalf")
+  right.sprite = sprite_new("spr_lemonRight")
+  right.sprite_height = self.sprite_height
+  right.sprite_width = self.sprite_width
+  
+  right.x = self.x + 30
+  right.y = self.y + 10
+  
+  right.xVelocity = game.mouseDeltaX/6
+  right.yVelocity = game.mouseDeltaY/6
+  
+  
+  Loop //This is the loop section
+  
+  #Velocity of lemon
+self.x += xVelocity
+self.y += yVelocity
+
+yVelocity -= gravity
+
+if self.y < -400:
+  destroy(self)
+
+#If lemon is less than -400, destroy self
+if game.mouseDown:
+  xDistance = abs (self.x - mouse_x() )
+  yDistance = abs (self.y - mouse_y() )
+
+#Print Close! if x/y distance less than 45
+  if xDistance < 30 and yDistance < 30:
+    destroy(self)
+    create_fruit_halves()
+    
+    game.score += pointAmt * game.comboMultiplier
+    game.comboMulitplier += 0.1
+    print("Score: " + round (game.score, 1))
+    game.comboTimer - 60
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+obj_pear
+Start //This is the start section
+
+#Sprite for pear
+sprite = sprite_new("spr_pear")
+
+import random
+
+#Velocity/Gravity of pear
+xVelocity = 0
+yVelocity = 0
+gravity = 0.3
+
+pointAmt = 5
+
+#Sprite height/width of pear
+sprite_height = 0.09
+sprite_width = 0.09
+
+def create_fruit_halves():
+  
+  left = object_new("obj_fruitHalf")
+  left.sprite = sprite_new("spr_pearLeft")
+  left.sprite_height = self.sprite_height
+  left.sprite_width = self.sprite_width
+  
+  left.x = self.x - 30
+  left.y = self.y + 10
+  
+  left.xVelocity = game.mouseDeltaX/6
+  left.yVelocity = game.mouseDeltaY/6
+  
+  right = object_new("obj_fruitHalf")
+  right.sprite = sprite_new("spr_pearRight")
+  right.sprite_height = self.sprite_height
+  right.sprite_width = self.sprite_width
+  
+  right.x = self.x + 30 
+  right.y = self.y + 10
+  
+  right.xVelocity = game.mouseDeltaX/6
+  right.yVelocity = game.mouseDeltaY/6
+  
+  
+  Loop //This is the loop section
+  
+  #Velocity of pear
+self.x += xVelocity
+self.y += yVelocity
+
+yVelocity -= gravity
+
+if self.y < -400:
+  destroy(self)
+
+#If bomb is less than -400, destroy self
+if game.mouseDown:
+  xDistance = abs (self.x - mouse_x() )
+  yDistance = abs (self.y - mouse_y() )
+  
+
+#Print Close! if x/y distance less than 45
+  if xDistance < 45 and yDistance < 45:
+    destroy(self)
+    create_fruit_halves()
+    
+    game.score += pointAmt * game.comboMultiplier
+    game.comboMulitplier += 0.1
+    print("Score: " + round (game.score, 1))
+    game.comboTimer - 60
+    
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+obj_fruitHalf
+Start //This is the start section
+
+xVelocity = 0
+yVelocity = 0
+gravity = 0.3
+
+
+Loop //This is the loop section
+
+self.x += xVelocity
+self.y += yVelocity
+
+yVelocity -= gravity
+
+if self.y < -400:
+  destroy(self)
