@@ -6,6 +6,6 @@
 2. Room Scripts 
 3. Object Scripts
 
-Just remeber that, if you want to see the picture of your fruits to show up in game, you need to add sprites (picutes)
+Just remeber that, if you want to see the picture of your fruits to show up in game, you need to add sprites (pictures)
 Under "Sprites" on pixel pad.io you can click the plus button and add a picture of your sprite from your computer
 
