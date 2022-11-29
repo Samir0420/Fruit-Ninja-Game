@@ -1,7 +1,7 @@
  #This is a README for my coded fruit ninja game for python.
  #I have made this game using PixelPad.io
 
-#To know and understand how this game was made, read through the files of code in this order...
+#To know and understand how this game was made, read through the files of code in this order:
 1. Main Scripts
 2. Room Scripts 
 3. Object Scripts
