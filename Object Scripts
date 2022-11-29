@@ -445,7 +445,6 @@ if game.mouseDown:
   xDistance = abs (self.x - mouse_x() )
   yDistance = abs (self.y - mouse_y() )
   
-
 #Print Close! if x/y distance less than 45
   if xDistance < 45 and yDistance < 45:
     destroy(self)
@@ -464,7 +463,6 @@ Start //This is the start section
 xVelocity = 0
 yVelocity = 0
 gravity = 0.3
-
 
 Loop //This is the loop section
 
