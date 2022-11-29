@@ -64,7 +64,6 @@ bg.sprite_width = 1
 
 timer = 1300
 
-
 Loop //This is the loop section
 
 timer -= 1
