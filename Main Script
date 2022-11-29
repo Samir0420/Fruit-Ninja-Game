@@ -45,3 +45,5 @@ if mouseDown == False or comboTimer < 0:
   if comboMultiplier != 1:
     comboMultiplier = 1
     print ("Combo Reset!")
+    
+    
